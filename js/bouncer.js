@@ -26,6 +26,7 @@ let dvd = {
 })();
 
 function update() {
+    speed = document.getElementById("speed").value;
     setTimeout(() => {
         //Draw the canvas background
         ctx.fillStyle = '#000';
