@@ -1,0 +1,12 @@
+.link
+{
+  color: #1000FA;
+  font-weight: normal;
+  text-decoration: underline;
+}
+.link:hover
+{
+  color: #6000FF;
+  font-weight: bold;
+  cursor: pointer;
+}
