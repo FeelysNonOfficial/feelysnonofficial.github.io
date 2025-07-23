@@ -1,1 +1,47 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>Scroll-Controlled Video</title>
+  <style>
+    body {
+      height: 3000px; /* enough scroll length */
+      margin: 0;
+    }
+    video {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 800px;
+      z-index: 10;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
 
+  <video id="scrollVideo" muted="">
+    <source src="your-video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <script>
+    const video = document.getElementById("scrollVideo");
+
+    // Wait for metadata to load so we can access duration
+    video.addEventListener('loadedmetadata', () => {
+      const duration = video.duration;
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollFraction = scrollTop / scrollHeight;
+
+        video.currentTime = scrollFraction * duration;
+      });
+    });
+  </script>
+
+
+
+</body></html>
