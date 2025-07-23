@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scroll-Controlled Video</title>
+  <title>Scroll-Controlled Smooth Video</title>
   <style>
     body {
       height: 3000px;
@@ -14,8 +14,8 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 180%;
-      max-width: 1800px;
+      width: 80%;
+      max-width: 800px;
       z-index: 10;
       pointer-events: none;
     }
@@ -44,25 +44,30 @@
     let targetTime = 0;
     let currentTime = 0;
 
-    const lerp = (start, end, amount) => start + (end - start) * amount;
-
-    function animate() {
-      currentTime = lerp(currentTime, targetTime, 0.1);
-      video.currentTime = currentTime;
-      requestAnimationFrame(animate);
-    }
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const lerp = (start, end, t) => start + (end - start) * t;
 
     video.addEventListener('loadedmetadata', () => {
       const duration = video.duration;
 
-      window.addEventListener('scroll', () => {
+      function updateScrollTarget() {
         const scrollTop = window.scrollY;
         const scrollHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollFraction = scrollTop / scrollHeight;
+        const scrollFraction = clamp(scrollTop / scrollHeight, 0, 1);
         targetTime = scrollFraction * duration;
-      });
+      }
 
-      animate();
+      function smoothUpdate() {
+        currentTime = lerp(currentTime, targetTime, 0.08); // Adjust 0.08 to make smoother (lower = smoother)
+        if (Math.abs(video.currentTime - currentTime) > 0.01) {
+          video.currentTime = currentTime;
+        }
+        requestAnimationFrame(smoothUpdate);
+      }
+
+      window.addEventListener('scroll', updateScrollTarget);
+      updateScrollTarget();
+      smoothUpdate();
     });
   </script>
 
