@@ -30,6 +30,7 @@ class Bouncer{
     }
 
     move(delta){
+        var cornerTracker = 0;
         if (this.x < 0 || this.x > innerWidth-this.element.width){
             if (this.x < 0){
                 this.x = 0;
@@ -39,6 +40,7 @@ class Bouncer{
                 this.x = innerWidth-this.element.width;
                 this.xv=-Math.abs(this.xv);
             }
+            cornerTracker++;
         }
         if (this.y < 0 || this.y > innerHeight-this.element.height){
             if (this.y < 0){
@@ -49,12 +51,17 @@ class Bouncer{
                 this.y = innerHeight-this.element.height;
                 this.yv=-Math.abs(this.yv);
             }
+            cornerTracker++;
         }
 
         this.x+=this.xv*delta/1000;
         this.y+=this.yv*delta/1000;
 
         this.goTo();
+
+        if (cornerTracker==2){
+            console.info(this,"Hit the corner!");
+        }
     }
 
     goTo(){
