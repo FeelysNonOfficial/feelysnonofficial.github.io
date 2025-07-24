@@ -13,12 +13,27 @@
         <h1>Bouncy2 Demo</h1>
         <p>Feely can bounce around on top of all this stuff.</p>
         <p>Amazing!</p>
+        <button onclick=newFeely>Add new feely!</button>
         <img id="feely" src="feely_og.png">
         <img src = "feely_og.png" id = "feely2" width="98" height="187">
         <script src = "../js/bouncer2.js"></script>
         <script>
             var feely2=new Bouncer("feely2", 300);
             feely2.init();
+
+            function newFeely(){
+                var f = document.createElement("img");
+                f.src="feely_og.png";
+                var k = Math.random()+0.5;
+                var w = 196;
+                var h = 374;
+                f.width = w*k;
+                f.height = h*k;
+
+                document.body.appendChild(f);
+
+                addBouncer(f);
+            }
         </script>
     </body>
 </html>
