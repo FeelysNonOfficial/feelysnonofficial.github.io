@@ -32,21 +32,21 @@ class Bouncer{
         if (this.x < 0 || this.x > innerWidth-this.element.width){
             if (this.x < 0){
                 this.x = 0;
-                this.xv=Math.abs(xv);
+                this.xv=Math.abs(this.xv);
             }
             else{
                 this.x = innerWidth-this.element.width;
-                this.xv=-Math.abs(xv);
+                this.xv=-Math.abs(this.xv);
             }
         }
         if (this.y < 0 || this.y > innerHeight-this.element.height){
             if (this.y < 0){
                 this.y = 0;
-                this.yv=Math.abs(yv);
+                this.yv=Math.abs(this.yv);
             }
             else{
                 this.y = innerHeight-this.element.height;
-                this.yv=-Math.abs(yv);
+                this.yv=-Math.abs(this.yv);
             }
         }
 
