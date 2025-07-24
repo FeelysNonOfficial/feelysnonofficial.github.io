@@ -60,7 +60,8 @@ class Bouncer{
         this.goTo();
 
         if (cornerTracker==2){
-            console.info(this,"Hit the corner!");
+            console.error(this,"Hit the corner!");
+            alert("One of the feelies hit the corner!");
         }
     }
 
