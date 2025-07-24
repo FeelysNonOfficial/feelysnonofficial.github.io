@@ -61,7 +61,6 @@ class Bouncer{
 
         if (cornerTracker==2){
             console.error(this,"Hit the corner!");
-            alert("One of the feelies hit the corner!");
         }
     }
 
