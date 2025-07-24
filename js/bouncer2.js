@@ -4,9 +4,10 @@ var bouncers = [];
 var lastDelta = 0;
 
 class Bouncer{
-    constructor(id, speed, element){
+    constructor(id, speed){
         console.log(id);
-        this.element = document.getElementById(id) | element;
+        this.element = document.getElementById(id);
+
         console.log(this.element);
         console.log(innerWidth);
         console.log(this.element.width);
@@ -78,5 +79,8 @@ var feely = new Bouncer("feely", 400);
 feely.init();
 
 function addBouncer(el){
-    new Bouncer(null, Math.random*140+260, el).init();
+    el.setAttribute("id", "summon");
+    var b = new Bouncer("summon", Math.random()*140+260);
+    b.init();
+    el.removeAttribute("id");
 }
