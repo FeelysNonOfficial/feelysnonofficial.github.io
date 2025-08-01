@@ -1,6 +1,11 @@
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      var meta = document.createElement('meta');
+      meta.name = "viewport";
+      meta.content = "width=1920,initial-scale="+window.innerWidth/1920;
+      document.getElementsByTagName('head')[0].appendChild(meta);
+    </script>
     <style type='text/css'>
         * {box-sizing: border-box}
       body {font-family: "Lato", sans-serif;}
