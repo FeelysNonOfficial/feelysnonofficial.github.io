@@ -78,24 +78,44 @@
   </head>
   <body>
     <script>
-      function openTab(evt, tabName) {
+      function openGame(evt, gameName) {
   // Declare all variables
-  var i, tabcontent, tablinks;
+  var i, gamecontent, gamelinks;
 
   // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+  gamecontent = document.getElementsByClassName("gamecontent");
+  for (i = 0; i < gamecontent.length; i++) {
+    gamecontent[i].style.display = "none";
   }
 
   // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  gamelinks = document.getElementsByClassName("gamelinks");
+  for (i = 0; i < gamelinks.length; i++) {
+    gamelinks[i].className = gamelinks[i].className.replace(" active", "");
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(tabName).style.display = "block";
+  document.getElementById(gameName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+function openJam(evt, jamName) {
+  // Declare all variables
+  var i, jamcontent, jamlinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  jamcontent = document.getElementsByClassName("jamcontent");
+  for (i = 0; i < jamcontent.length; i++) {
+    jamcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  jamlinks = document.getElementsByClassName("jamlinks");
+  for (i = 0; i < jamlinks.length; i++) {
+    jamlinks[i].className = jamlinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(jamName).style.display = "block";
   evt.currentTarget.className += " active";
 }
     </script>
@@ -107,10 +127,10 @@
     <div style="padding-left:16px; margin: 20px 0px">
       <h1>Feely Jams</h1>
       <!-- Tab links -->
-<button class="tablinks" onclick="openTab(event, 'fj1')">#1</button>
-<button class="tablinks" onclick="openTab(event, 'fj2')">#2</button>
+<button class="jamlinks" onclick="openTab(event, 'fj1')">#1</button>
+<button class="jamlinks" onclick="openTab(event, 'fj2')">#2</button>
 <!-- Tab content -->
-<div id="fj1" class="tabcontent">
+<div id="fj1" class="jamcontent">
 <div style="display: block; overflow: auto; background: #F0F0F0; width: 80%">
 <h3><a href="https://itch.io/jam/feelyjam1">JAM</a></h3>
 <a href="https://itch.io/jam/feelyjam1/rate/3746437">WINNER: Feely land by thegamedevnom1</a>
@@ -118,7 +138,7 @@
 </div>
 </div>
 
-<div id="fj2" class="tabcontent">
+<div id="fj2" class="jamcontent">
 <div style="display: block; overflow: auto; background: #F0F0F0; width: 80%">
 <h3><a href="https://itch.io/jam/feelyjam2">JAM</a></h3>
 <a>WINNER: NO WINNER YET</a>
@@ -127,17 +147,17 @@
 
 
 <h1>Feely Games</h1>
-<button class="tablinks" onclick="openTab(event, 'wdtcctr')">Why did the Chaka cross the road?</button>
-<button class="tablinks" onclick="openTab(event, 'Fally')">Fally</button>
-<button class="tablinks" onclick="openTab(event, 'sfb')">Super Feely bananas</button>
-<div id="wdtcctr" class="tabcontent"> 
+<button class="gamelinks" onclick="openTab(event, 'wdtcctr')">Why did the Chaka cross the road?</button>
+<button class="gamelinks" onclick="openTab(event, 'Fally')">Fally</button>
+<button class="gamelinks" onclick="openTab(event, 'sfb')">Super Feely bananas</button>
+<div id="wdtcctr" class="gamecontent"> 
 <div class="game-card">
               <span class="h2 text-2xl font-bold text-gray-700 mb-4">Why did the Chaka cross the road?</span>
               <p class="text-gray-500 mb-4">The original <i>Feely</i> game</p>
              <iframe src="https://itch.io/embed/2846130" width="552" height="167" frameborder="0"><a href="https://teoggames.itch.io/why-did-the-chaka-cross-the-road">Why did the Chaka cross the road? by TeoG</a></iframe>
             </div>
 </div>
-<div id="Fally" class="tabcontent"> 
+<div id="Fally" class="gamecontent"> 
 <div class="game-card">
               <span class="h2 text-2xl font-bold text-gray-700 mb-4">FALLY</span>
               <p class="text-gray-500 mb-4">The falling<i>Feely</i> game</p>
@@ -145,7 +165,7 @@
             </div>
 </div>
 
-<div id="sfb" class="tabcontent">
+<div id="sfb" class="gamecontent">
   <div class="game-card">
               <span class="h2 text-2xl font-bold text-gray-700 mb-4">Super feely bananas</span>
              <iframe frameborder="0" src="https://itch.io/embed/3743220" width="552" height="167"><a href="https://unitedcoder.itch.io/fally">FALLY by JimGames</a></iframe>
