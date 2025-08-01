@@ -39,7 +39,7 @@
 }
 
 /* Style the tab content */
-.tabcontent {
+.tcont {
   display: none;
   padding: 6px 12px;
   border: 1px solid #ccc;
@@ -130,7 +130,7 @@ function openJam(evt, jamName) {
 <button class="tab jamlinks" onclick="openJam(event, 'fj1')">#1</button>
 <button class="tab jamlinks" onclick="openJam(event, 'fj2')">#2</button>
 <!-- Tab content -->
-<div id="fj1" class="tab jamcontent">
+<div id="fj1" class="tab jamcontent tcont">
 <div style="display: block; overflow: auto; background: #F0F0F0; width: 80%">
 <h3><a href="https://itch.io/jam/feelyjam1">JAM</a></h3>
 <a href="https://itch.io/jam/feelyjam1/rate/3746437">WINNER: Feely land by thegamedevnom1</a>
@@ -138,7 +138,7 @@ function openJam(evt, jamName) {
 </div>
 </div>
 
-<div id="fj2" class="tab jamcontent">
+<div id="fj2" class="tab jamcontent tcont">
 <div style="display: block; overflow: auto; background: #F0F0F0; width: 80%">
 <h3><a href="https://itch.io/jam/feelyjam2">JAM</a></h3>
 <a>WINNER: NO WINNER YET</a>
@@ -150,14 +150,14 @@ function openJam(evt, jamName) {
 <button class="tab gamelinks" onclick="openGame(event, 'wdtcctr')">Why did the Chaka cross the road?</button>
 <button class="tab gamelinks" onclick="openGame(event, 'Fally')">Fally</button>
 <button class="tab gamelinks" onclick="openGame(event, 'sfb')">Super Feely bananas</button>
-<div id="wdtcctr" class="tab gamecontent"> 
+<div id="wdtcctr" class="tab gamecontent tcont"> 
 <div class="game-card">
               <span class="h2 text-2xl font-bold text-gray-700 mb-4">Why did the Chaka cross the road?</span>
               <p class="text-gray-500 mb-4">The original <i>Feely</i> game</p>
              <iframe src="https://itch.io/embed/2846130" width="552" height="167" frameborder="0"><a href="https://teoggames.itch.io/why-did-the-chaka-cross-the-road">Why did the Chaka cross the road? by TeoG</a></iframe>
             </div>
 </div>
-<div id="Fally" class="tab gamecontent"> 
+<div id="Fally" class="tab gamecontent tcont"> 
 <div class="game-card">
               <span class="h2 text-2xl font-bold text-gray-700 mb-4">FALLY</span>
               <p class="text-gray-500 mb-4">The falling<i>Feely</i> game</p>
@@ -165,7 +165,7 @@ function openJam(evt, jamName) {
             </div>
 </div>
 
-<div id="sfb" class="tab gamecontent">
+<div id="sfb" class="tab gamecontent tcont">
   <div class="game-card">
               <span class="h2 text-2xl font-bold text-gray-700 mb-4">Super feely bananas</span>
              <iframe frameborder="0" src="https://itch.io/embed/3743220" width="552" height="167"><a href="https://unitedcoder.itch.io/fally">FALLY by JimGames</a></iframe>
