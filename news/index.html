@@ -26,12 +26,18 @@
       {
         var newsl = document.getElementById("newslist");
         newsl.innerHTML = '';
-        const response = await fetch("./news.txt");
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        var result = await response.text();
+        var response = await fetch(
+          "https://corsproxy.io/?url=https://pastebin.com/api/api_raw.php",
+          {
+            method: "POST",
+            headers: 
+            {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "api_option=show_paste&api_user_key=86471465f434e60846e94a9d74961e0c&api_dev_key=mGd4zjkcXgAA9ib51qI51fXQcQBZG316&api_paste_key=Hu2NDEDg"
+          }
+        );
+        var result = await response.text()
         result.trimEnd().split('\n').reverse().forEach(function(element) {
           newsl.innerHTML+=`<li style="background: #00000020; padding: 5px 5px; margin: 20px 20px; height: auto"> \
           <span class="h1 font-bold text-gray-700 m-2">${element.split('-*-')[0]}</span> <br />\
