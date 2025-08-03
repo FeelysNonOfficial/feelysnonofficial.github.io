@@ -32,10 +32,10 @@
         }
 
         var result = await response.text();
-        result.split('\n').reverse().forEach(function(element) {
+        result.trimEnd().split('\n').reverse().forEach(function(element) {
           newsl.innerHTML+=`<li style="background: #00000020; padding: 5px 5px; margin: 20px 20px; height: auto"> \
-          <span class="h1 font-bold text-gray-700 m-2">${element.split(':')[0]}</span> <br />\
-          <small class="p-3">${element.split(':')[1]}</small> \
+          <span class="h1 font-bold text-gray-700 m-2">${element.split('-*-')[0]}</span> <br />\
+          <small class="p-3">${element.split('-*-')[1]}</small> \
           </li>`;
         });
       }
