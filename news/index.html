@@ -29,9 +29,9 @@
         var newsl = document.getElementById("newslist");
         newsl.innerHTML = '<li style="background: #00000020; padding: 5px 5px; margin: 20px 20px; height: auto"> \
           <span class="h1 font-bold text-gray-700 m-2">Loading...</span></li>';
-        var response = await fetch("https://api.allorigins.win/get?url=https://pastebin.com/raw/Hu2NDEDg");
+        var response = await fetch("https://api.codetabs.com/v1/proxy/?quest=https://pastebin.com/raw/Hu2NDEDg");
         newsl.innerHTML ='';
-        var result = JSON.parse(await response.text()).contents;
+        var result = await response.text();
 	result.trimEnd().split('\r\n').reverse().forEach(function(element) {
           newsl.innerHTML+=`<li style="background: #00000020; padding: 5px 5px; margin: 20px 20px; height: auto"> \
           <span class="h1 font-bold text-gray-700 m-2">${element.split('-*-')[0]}</span> <br />\
